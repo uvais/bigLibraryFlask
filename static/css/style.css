@@ -172,7 +172,7 @@ input:focus {
 
 #resultBox {
 	position: absolute;
-	display: none;
+	display: block;
 	border: 1px solid #899caa;
 	border-radius: 3px 0 3px 3px;
 	-moz-border-radius: 3px 0 3px 3px;
@@ -260,4 +260,12 @@ input:focus {
 }
 #changePassDiv {
 	display:none;
+}
+
+
+#loginbox {
+    width: 200px;
+    height: 100px;
+    margin: 0 auto; 
+    margin-top: 200px;
 }

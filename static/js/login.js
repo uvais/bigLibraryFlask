@@ -20,18 +20,13 @@ $(document).ready(function() {
     });
 
 
-$(document).on('click', ".mainDiv #searchBtn", function(){
-	$('#resultBox').css("display", "block");
-	//loadPopup();	
-});
+
 $(this).keyup(function(event) {
 	if (event.which == 27) { // 27 is 'Ecs' in the keyboard
 		$('#resultBox').css("display", "none");  // function close pop up
 	}  	
 });
-$('#retBtn').click(function (){
-		disablePopup();
-});
+
 
 $("#uploadSideButton").on('click', this, function(){
 	$('.mainDiv').html($('#uploadDiv').html());

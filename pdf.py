@@ -28,6 +28,11 @@ def convert_pdf_to_txt(path):
     retstr.close()
     return text
 
+def convert_one(filename, source, destination):
+    fout = open(destination+filename.replace(".pdf", ".txt"), "w")
+    fout.write(convert_pdf_to_txt(source+filename))
+
+
 def convert_all(source, destination):
     for fname in os.listdir(source):
         fout = open(destination+fname.replace(".pdf", ".txt"), "w")
