@@ -8,10 +8,14 @@
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 <body>
-<a href="#" id="loginButton"><span>Login</span><em></em></a>
+<div>
+<div style="float:left">Hi, User</div>
+<div style="float:right"><a href="#" id="logout">Logout</a></div>
+<div style="clear:both"></div>
+</div>
 <div style="clear:both"></div>
 <div id="loginBox">               
-	<form id="loginForm" action="login" method="POST">
+	<form id="loginForm">
     	<fieldset id="body">
         	<fieldset>
       			<label for="email">Email Address</label>
@@ -48,8 +52,12 @@
 <button style="width:200px;">Search again</button>
 </div>
 </div>
-
-<div class="mainDiv">
+<div id="sideBar">
+	<a href="#" class="sideButton" id="searchSideButton"><span>Search</span><em></em></a>
+   	<a href="#" class="sideButton" id="uploadSideButton"><span>Upload</span><em></em></a>
+   	<a href="#" class="sideButton" id="changePassSideButton"><span>Change Password</span><em></em></a>
+</div>
+<div class="mainDiv"> 
 </div>
 <div id="mainDivRep"; style="display:none">
 	<div id="seachDivHtml" style="margin-top:170px; margin-left:50px;">
@@ -76,6 +84,51 @@
     	</div>
   	</div>
   </div>
+</div>
+<div id="uploadDiv" style="display:none">
+<table style="width: 500px; margin-top:150px">
+  <tr>
+    <td>Select File</td>
+    <td><input type="file" style="height:20px; width: 100%;"/></td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><input type="text" id="textBookName" style="height:20px; width: 100%;"/></td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td><input type="text" id="textBookAuthor" style="height:20px; width: 100%;"/></td>
+  </tr>
+  <tr>
+    <td>Publisher</td>
+    <td><input type="text" id="textBookPub" style="height:20px; width: 100%;"/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="button" id="uploadButton" style="height:20px;" value="Upload File"/></td>
+  </tr>
+</table>
+</div>
+
+<div id="changePassDiv">
+<table style="width: 500px; margin-top:150px">
+  <tr>
+    <td>Current Password</td>
+    <td><input type="password" id="currPass" style="height:20px; width: 100%;"/></td>
+  </tr>
+  <tr>
+    <td>New Password</td>
+    <td><input type="password" id="newPass" style="height:20px; width: 100%;"/></td>
+  </tr>
+  <tr>
+    <td>Confirm Password</td>
+    <td><input type="password" id="confPass" style="height:20px; width: 100%;"/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="button" id="changePassBtn" style="height:20px;" value="Submit"/></td>
+  </tr>
+</table>
 </div>
 <div id="backgroundPopup"></div>
 </body>

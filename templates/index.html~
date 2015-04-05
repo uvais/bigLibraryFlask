@@ -5,6 +5,7 @@
 <title>Untitled Document</title>
 <script src="{{ url_for('static', filename='js/jquery-1.7.1.js') }}"></script>
 <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 <body>
