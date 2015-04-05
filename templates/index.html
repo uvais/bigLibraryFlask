@@ -35,47 +35,44 @@
 <div class="mainDiv">
 </div>
 <div id="mainDivRep"; style="display:none">
-	<div id="seachDivHtml" style="margin-left:150px;">
-	<div style="width: 400px; height:20px"><input type="text" style="width:100%" /></div>
-    <div style="width: 337px; margin-left:31.5px; height:20px">
-   	  <div style="color:#000; font-weight:bold; width:100%">
-   	    <label>
-      	    <input name="RadioGroup1" type="radio" value="kw" id="RadioGroup1_0" />
-      	    Keyword</label>
-      	  <label>
-      	    <input name="RadioGroup1" type="radio" value="au" id="RadioGroup1_1" />
-      	    Author</label>
-      	  <label>
-      	    <input name="RadioGroup1" type="radio" value="pb" id="RadioGroup1_2" />
-      	    Publisher</label>
-      	  <label>
-      	    <input name="RadioGroup1" type="radio" value="nm" id="RadioGroup1_3" />
-      	    Name</label>
-      </div>
-  	</div>
-	<div style="width:400px; height:20px">
-    	<div style="width: 200px; margin-left:100px">
-    	  <input type="submit" style="width: 100%" id="searchBtn" />
-    	</div>
-  	</div>
-    </div>
-        <div id="resultBox">
-		<table width="700px" border="1">
-  		<tr>
-    		<td>&nbsp;</td>
- 			 </tr>
-  			<tr>
-   		 <td>&nbsp;</td>
-  			</tr>
-  			<tr>
-   		 <td>&nbsp;</td>
-  			</tr>
-  			<tr>
-   			 <td>&nbsp;</td>
-  			</tr>
-		</table>
+	<form action="query" method="POST">
+		<div id="seachDivHtml" style="margin-left:150px;">
+			<div style="width: 400px; height:20px"><input type="text" style="width:100%" name="searchbar"/></div>
+			<div style="width: 337px; margin-left:31.5px; height:20px">
+				<div style="color:#000; font-weight:bold; width:100%">
+					<label>
+						<input name="RadioGroup1" type="radio" value="kw" id="RadioGroup1_0" />
+					Keyword</label>
+					<label>
+						<input name="RadioGroup1" type="radio" value="au" id="RadioGroup1_1" />
+						Author</label>
+					<label>
+						<input name="RadioGroup1" type="radio" value="pb" id="RadioGroup1_2" />
+						Publisher</label>
+					<label>
+						<input name="RadioGroup1" type="radio" value="nm" id="RadioGroup1_3" />
+						Name</label>
+				</div>
+			<div>
+			<div style="width:400px; height:20px">
+			    	<div style="width: 200px; margin-left:100px">
+					<input type="submit" style="width: 100%" id="searchBtn" />
+			    	</div>
+		  	</div>
+		</div>
+	</form>
+	        <div id="resultBox">
+			<table width="700px" border="1">
+			{% for r in result %}
+			<tr>
+			<td>
+                        <p><a href="data/{{r[1]}}" target="_blank">{{r[1]}}</a> ({{r[0]}})</p>
+			</td>
+			</tr>
+                	{% endfor %}
+			</table>
+		</div>
 	</div>
-</div>
 <div id="backgroundPopup"></div>
 </body>
 </html>

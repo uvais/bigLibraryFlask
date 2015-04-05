@@ -3,6 +3,8 @@ from flask import *
 from searcher import *
 import mysql.connector
 from mysqlConnecter import *
+import os
+import pdf
 
 
 connectMysql = mysqlConnect()
@@ -38,6 +40,12 @@ def login():
 				return render_template('userhome.html')
 
 
+@app.route('/query', methods=['GET', 'POST'])
+def query():
+    if request.method == 'POST':
+        q = request.form['searchbar']
+        result = lemon.query(q)
+	return render_template('index.html', result=result)
 
 if __name__ == '__main__':
     app.debug = True
