@@ -14,16 +14,17 @@ lemon = Searcher()
 app = Flask(__name__)
 app.secret_key = 'F12Zr47j\3yX R~X@H!jmM]Lwf/,?KT'
 
+
 @app.route('/')
 def home():
-	sumSessionCounter()
 	return render_template('index.html')
 
 @app.route('/admin')
 def adminhome():
 	return render_template('adminlogin.html')
+	
 
-@app.route('/adminlogin', methods=['POST','GET'])
+@app.route('/home', methods=['POST','GET'])
 def login():
 	if request.method == 'POST':
 		u = request.form['uid']
@@ -40,19 +41,19 @@ def login():
 		else:
 			return render_template('adminlogin.html', errormsg="User not found")
 	elif request.method == "GET":
-		if session['name']:
-			return render_template('adminhome.html')
-		else:
-			return render_template('adminlogin.html')
-
+		return render_template('adminhome.html')
+		
 @app.route('/redirect')	
-def rediretHome():
+def rediret():
 	return render_template('adminhome.html')
+
+@app.route('/nologin')
+def nologin():
+	return render_template('adminlogin.html')
 
 @app.route('/logout')	
 def logout():
 	session.clear()
-	session['name'] = None 
 	return render_template('adminlogin.html')
 
 @app.route('/query', methods=['GET', 'POST'])
