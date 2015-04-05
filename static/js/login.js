@@ -21,34 +21,18 @@ $(document).ready(function() {
 
 
 $(document).on('click', ".mainDiv #searchBtn", function(){
-	loadPopup();	
+	$('#resultBox').css("display", "block");
+	//loadPopup();	
 });
 $(this).keyup(function(event) {
 	if (event.which == 27) { // 27 is 'Ecs' in the keyboard
-		disablePopup();  // function close pop up
+		$('#resultBox').css("display", "none");  // function close pop up
 	}  	
 });
 $('#retBtn').click(function (){
 		disablePopup();
 });
-var popupStatus = 0; // set value
-function loadPopup() { 
 
-	if(popupStatus == 0) { // if value is 0, show popup
-		$("#resultBox").css("display", "block"); // fadein popup div
-		$('#retBtn').css("display", "block");
-		$("#backgroundPopup").css("display", "block"); // css opacity, supports IE7, IE8
-		popupStatus = 1; // and set value to 1
-	}
-}
-function disablePopup() {
-	if(popupStatus == 1) { // if value is 1, close popup
-		$("#resultBox").css("display", "none"); 
-		$('#retBtn').css("display", "none");
-		$("#backgroundPopup").css("display", "none");  
-		popupStatus = 0;  // and set value to 0
-	}
-}
 $("#uploadSideButton").on('click', this, function(){
 	$('.mainDiv').html($('#uploadDiv').html());
 });
