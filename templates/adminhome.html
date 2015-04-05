@@ -5,38 +5,35 @@
 <title>Untitled Document</title>
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 <!--<script src="../static/js/jquery-1.7.1.js"></script>
-<script src="../static/js/login.js"></script>
-<link type="text/css" rel="stylesheet" href="../static/css/style.css" />-->
+<script src="../static/js/login.js"></script>-->
+<!--<link type="text/css" rel="stylesheet" href="../static/css/style.css" />-->
 </head>
 <body>
 {% if session['name'] %}
-<!-- <div>
+<div>
 <div style="float:left">Hi, Admin</div>
-<div style="float:right"><a href="#" id="logout">Logout</a></div>
+<div style="float:right"><a href="{{ url_for('logout') }}">logout</a></div>
 <div style="clear:both"></div>
+<div>{{message}}</div>
 </div>
 <div class="mainDiv"> 
-{{message}}
-<form method="POST" action="admin/upload" enctype="multipart/form-data">
-<table style="width: 500px; margin-top:150px; margin-left:100px">
-  <tr>
-    <td>Select File</td>
-    <td><input type="file" multiple style="height:20px; width: 100%;" name="file[]" id="fileupload" /></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><input type="submit" id="uploadButton" style="height:20px;" value="Upload File"/></td>
-  </tr>
-  <tr>
-    <td>
-    </td>
-  </tr>
-</table>
-</form>
-<form method="POST" action="admin/index">
-<input type="submit" id="loaddb" style="height:20px;" value="Load to Database"/>
-</form>
-</div> -->
+	<form name="lform" method="post" action="admin/upload">
+    	<div style="width:400px; margin-left:150px">
+    	<table width="100%">
+        <tr>
+    		<td width="44%">Select Your Files</td>
+            <td width="56%"><input type="file" multiple style="height:20px; width: 100%;" name="file[]" id="fileupload" /></td>
+        </tr>
+        </table>
+        </div>
+        <div style="width:200px; margin-top:15px; margin-left:250px"><input type="submit" value="Upload" style="width:100%"/></div>
+	</form>
+	<form name="rform" method="post" action="../admin/index">
+    	<div style="width:200px; margin-top:15px; margin-left:250px"><input type="submit" value="Index" style="width:100%"/></div>
+	</form>
+</div> 
+
+<!--
 
 
 
@@ -49,7 +46,7 @@
 
 <form name="rform" method="post" action="../admin/index">
     <input type="submit" value="Index" />
-</form>
+</form>-->
 {% else %}
 <a href="{{ url_for('nologin') }}">You have loggout from the current session</a>
 {% endif %}

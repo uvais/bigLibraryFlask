@@ -11,11 +11,11 @@
 </head>
 <body>
 <div class="mainDiv">
+<div>
 <form action="query" method="POST">
-		<div id="seachDivHtml" style="margin-left:150px;">
+		<div id="seachDivHtml">
 			<div style="width: 400px; height:20px"><input type="text" style="width:100%" name="searchbar"/></div>
-			<div style="width: 337px; margin-left:31.5px; height:20px">
-				<div style="color:#000; font-weight:bold; width:100%">
+				<div style="color:#000; font-weight:bold; width:400; margin-left:33px">
 					<label>
 						<input name="RadioGroup1" type="radio" value="kw" id="RadioGroup1_0" />
 					Keyword</label>
@@ -29,7 +29,6 @@
 						<input name="RadioGroup1" type="radio" value="nm" id="RadioGroup1_3" />
 						Name</label>
 				</div>
-			<div>
 			<div style="width:400px; height:20px">
 			    	<div style="width: 200px; margin-left:100px">
 					<input type="submit" style="width: 100%" id="searchBtn" />
@@ -37,10 +36,17 @@
 		  	</div>
 		</div>
 	</form>
-	<div>
+    </div>
+	<div style="margin-top:20px; background-color:#FFF">
+    <table width="700px">
 		{% for r in result %}
-			<p><a href="pdfs/{{r[1].replace('.txt', '.pdf')}}" target="_blank">{{r[1].replace(".txt", ".pdf")}}</a> ({{r[0]}})</p>
+        <tr>
+        <td>
+			<a href="pdfs/{{r[1].replace('.txt', '.pdf')}}" target="_blank">{{r[1].replace(".txt", ".pdf")}}</a> ({{r[0]}})
+        </td>
+        </tr>
 		{% endfor %}
+    </table>
 	</div>
 </div>
 </body>
