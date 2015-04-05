@@ -1,8 +1,6 @@
 // Login Form
 $(document).ready(function() {
 	$('.mainDiv').html($('#mainDivRep').html());
-//$('.mainDiv').html($('#addUserDiv').html());
-//Login form start here 
     var button = $('#loginButton');
     var box = $('#loginBox');
     var form = $('#loginForm');
@@ -57,13 +55,5 @@ $("#uploadSideButton").on('click', this, function(){
 $("#searchSideButton").on('click', this, function(){
 	$('.mainDiv').html($('#mainDivRep').html());
 });
-$("#approveSideButton").on('click', this, function(){
-	$('.mainDiv').html($('#approvalDiv').html());
-});
-$("#adduserSideButton").on('click', this, function(){
-	$('.mainDiv').html($('#addUserDiv').html());
-});
-$("#changePassSideButton").on('click', this, function(){
-	$('.mainDiv').html($('#changePassDiv').html());
-});
+
 });

@@ -16,6 +16,6 @@ class mysqlConnect:
 			return 1
 		else:
 			self.cursor.execute("INSERT INTO admindet VALUES (%s, %s)", (username, password))
-			return self.connection.commit()
-			
+			self.connection.commit()
+			return 0
 

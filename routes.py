@@ -37,21 +37,6 @@ def login():
 			else:
 				return render_template('userhome.html')
 
-@app.route('/adduser', methods=['POST','GET'])
-def adduser():
-	if request.method == 'POST':
-		username = request.form['adduseru']
-		email = request.form['addusere']
-		pass1 = request.form['adduserp']
-		pass2 = request.form['addusercp']
-		'''connectMysql.insertMysqlQuerry(username, email, pass1)
-		return render_template('adminhome.html')
-		'''
-		res = connectMysql.insertMysqlQuerry(username, email, pass1)
-		if res:
-			return render_template('adminhome.html', message="Successfully added")
-		else:
-			return render_template('adminhome.html', message="User exists")
 
 
 if __name__ == '__main__':

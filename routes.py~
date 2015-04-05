@@ -44,9 +44,6 @@ def adduser():
 		email = request.form['addusere']
 		pass1 = request.form['adduserp']
 		pass2 = request.form['addusercp']
-		'''connectMysql.insertMysqlQuerry(username, email, pass1)
-		return render_template('adminhome.html')
-		'''
 		res = connectMysql.insertMysqlQuerry(username, email, pass1)
 		if res:
 			return render_template('adminhome.html', message="Successfully added")

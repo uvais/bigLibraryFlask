@@ -10,12 +10,4 @@ class mysqlConnect:
 		self.cursor.execute("select * from admindet where name='%s'" % username)
 		row = self.cursor.fetchone()
 		return row;
-	def insertMysqlQuerry(self, username, email, password):
-		res = self.cursor.execute("select count(*) from admindet where name='%s'" % username)
-		if res:
-			return 1
-		else:
-			self.cursor.execute("INSERT INTO admindet VALUES (%s, %s)", (username, password))
-			self.connection.commit()
-			return 0
 
