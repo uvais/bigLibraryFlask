@@ -12,9 +12,11 @@ from werkzeug import secure_filename
 connectMysql = mysqlConnect()
 lemon = Searcher()
 app = Flask(__name__)
+app.secret_key = 'F12Zr47j\3yX R~X@H!jmM]Lwf/,?KT'
 
 @app.route('/')
 def home():
+	sumSessionCounter()
 	return render_template('index.html')
 
 @app.route('/admin')
@@ -24,17 +26,34 @@ def adminhome():
 @app.route('/adminlogin', methods=['POST','GET'])
 def login():
 	if request.method == 'POST':
-		
 		u = request.form['uid']
 		p = request.form['pwd']
 		row = connectMysql.getMysqlQuerry(u);
-		dbuname = row[0];
-		dbpass = row[1];
-		if dbpass != p:
-			return render_template('error.html')
+		if row:
+			dbuname = row[0];
+			dbpass = row[1];
+			if dbpass != p:
+				return render_template('adminlogin.html', errormsg="Password mismatch")
+			else:
+				session['name'] = u
+				return render_template('adminhome.html')
 		else:
+			return render_template('adminlogin.html', errormsg="User not found")
+	elif request.method == "GET":
+		if session['name']:
 			return render_template('adminhome.html')
+		else:
+			return render_template('adminlogin.html')
 
+@app.route('/redirect')	
+def rediretHome():
+	return render_template('adminhome.html')
+
+@app.route('/logout')	
+def logout():
+	session.clear()
+	session['name'] = None 
+	return render_template('adminlogin.html')
 
 @app.route('/query', methods=['GET', 'POST'])
 def query():

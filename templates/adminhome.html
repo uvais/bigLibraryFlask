@@ -36,7 +36,11 @@
 <input type="submit" id="loaddb" style="height:20px;" value="Load to Database"/>
 </form>
 </div> -->
+
+
+
 {{message}}
+<a href="{{ url_for('logout') }}">logout</a>
 <form name="lform" method="post" action="admin/upload">
     Select File <input type="file" multiple style="height:20px; width: 100%;" name="file[]" id="fileupload" />
     <input type="submit" value="Upload" />

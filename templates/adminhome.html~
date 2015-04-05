@@ -11,7 +11,8 @@
 <link type="text/css" rel="stylesheet" href="../static/css/style.css" />-->
 </head>
 <body>
-<div>
+{% if session['name'] %}
+<div>  
 <div style="float:left">Hi, User</div>
 <div style="float:right"><a href="#" id="logout">Logout</a></div>
 <div style="clear:both"></div>
